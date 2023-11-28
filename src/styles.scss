@@ -1,1 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use 'assets/sass/variables'as v;
+@use 'assets/sass/mixins'as m;
+
+/*---------Fonts---------- */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+/*---------Typography---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    @include m.title(v.$oscuro);
+}
+
+h1,
+h2 {
+    font-size: 4rem;
+
+    @include m.lap() {
+        font-size: 6rem;    }
+}
+
+a {
+    font-size: 1.8rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+i {
+    @include m.icons();
+}
+
+img {
+    max-width: 100%
+}
+
+
+/*---------Clases Generales---------- */
+.contain {
+    @include m.box(90%);
+
+    @include m.lap() {
+        @include m.box(120rem);
+    }
+}
+
+.padding {
+    @include m.padding(6rem, 0, false);
+}
+
+.btn {
+    @include m.btn();
+}
+
+.flex {
+    display: flex;
+    @include m.gap();
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+
+    &.justify {
+        justify-content: space-between;
+    }
+}
+
+.grid {
+    display: grid;
+    @include m.gap();
+
+    .area1 {
+        grid-area: area1;
+    }
+
+    .area2 {
+        grid-area: area2;
+    }
+
+    .area3 {
+        grid-area: area3;
+    }
+
+    &.areas {
+        grid-template-areas: 'area1''area2''area3';
+    }
+
+    @include m.lap {
+
+        &.areas {
+            grid-template-areas: 'area1 area2 area3';
+        }
+
+        &.column2 {
+            @include m.columns(2);
+        }
+
+        &.column3 {
+            @include m.columns(3);
+        }
+
+        &.column4 {
+            @include m.columns(4);
+        }
+    }
+}
+
+/*---------Clases Propias---------- */
+
+.no-mg {
+    margin: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+/*---------Colores---------- */
+
+.bg-color {
+
+    p,
+    a {
+        color: white;
+    }
+}
+

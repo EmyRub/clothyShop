@@ -1,0 +1,68 @@
+@use '../../../assets/sass/variables'as v;
+@use '../../../assets/sass/mixins'as m;
+
+.carrusel {
+    overflow: hidden;
+    position: relative;
+    @include m.box(120rem);
+    @include m.padding(4rem, 0);
+
+    width: 90%;
+}
+
+.sliders {
+    @include m.flex(flex-start);
+}
+
+.punto,
+.carrusel-arrow {
+    @include m.btn-carrusel();
+}
+
+.carrusel-arrow {
+    @include m.btn-position(4.5rem);
+}
+
+.carrusel-prev {
+    left: .5rem;
+}
+
+.carrusel-next {
+    right: .5rem;
+}
+
+.puntos {
+    @include m.pointsBottom(-1.4rem);
+}
+
+.punto {
+    width: 1.7em;
+    height: 1.7em;
+    list-style: none;
+}
+
+/************************************************/
+
+.product {
+    width: 30rem;
+    padding: 2rem;
+    @include m.bg-color(v.$gray);
+
+    h3 {
+        font-size: 3rem;
+        @include m.title(v.$melon, center, 1.5rem, italic);
+    }
+
+    p {
+        text-align: center;
+    }
+
+    a {
+        width: 100%;
+    }
+
+    .shop {
+        margin-top: .5rem;
+        @include m.btn(white, v.$cream, false);
+    }
+}

@@ -1,0 +1,80 @@
+<header>
+
+    <div id="top" class="bg-color row">
+        <div class="contain grid areas">
+
+            <div class="area1"></div>
+
+            <div class="area2">
+                <p class="promo">Get all ours discounts!</p>
+            </div>
+
+            <nav class="area3">
+                <a href="#"><i class="fa-solid fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/emyrub_93/"><i class="fa-solid fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCF87FnO5Hi4Ki1-4uKkiw6w"><i
+                        class="fa-solid fa-brands fa-youtube"></i></a>
+            </nav>
+        </div>
+    </div>
+
+    <div id="middle" class="row">
+        <div class="contain grid areas lap">
+
+            <div class="area1">
+                <a href=""><i class="logo fa-solid fa-shop fa-beat"></i></a>
+            </div>
+
+            <div class="area2">
+                <div class="buscador flex">
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text">
+                </div>
+            </div>
+
+            <nav class="area3">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-solid fa-heart"></i></a>
+                <a href=""><i class="fa-solid fa-user"></i></a>
+            </nav>
+
+        </div>
+
+        <div class="contain grid areas phone">
+
+            <div class="area1">
+                <i (click)="menu()" class="logo fa-solid fa-bars"></i>
+            </div>
+
+            <div class="area2">
+                <a href=""><i class="fa-solid fa-shop fa-beat"></i></a>
+            </div>
+
+            <div class="area3"></div>
+        </div>
+    </div>
+
+    <div id="bottom" class="bg-color">
+
+        <nav id="menu" class="row">
+            <a routerLink="./" routerLinkActive="active">Inicio</a>
+            <a routerLink="/nosotros" routerLinkActive="active">Nosotros</a>
+            <a routerLink="/tienda">Tienda</a>
+            <a routerLink="/blog">Blog</a>
+            <a routerLink="/contacto">Contacto</a>
+        </nav>
+
+        <ng-template #shop>
+            <nav class="shop row" [ngStyle]="{'active': active}">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-solid fa-heart"></i></a>
+                <a href=""><i class="fa-solid fa-user"></i></a>
+            </nav>
+        </ng-template>
+
+
+    </div>
+
+</header>
+

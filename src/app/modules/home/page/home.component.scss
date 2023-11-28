@@ -1,0 +1,53 @@
+@use '../../../../assets/sass/variables'as v;
+@use '../../../../assets/sass/mixins'as m;
+
+#nosotros {
+
+    h2 {
+        @include m.title(v.$oscuro, center, 2rem, italic);
+    }
+
+    picture {
+        grid-area: 2/ span 1;
+        @include m.flex(center, true);
+
+        @include m.lap() {
+            grid-area: 1/ span 1;
+        }
+    }
+
+    
+}
+
+#banner {
+    background: url('../../../../assets/img/banner.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 35rem;
+    @include m.flex(center, true);
+
+    h2 {
+        font-size: 2.5rem;
+        @include m.title(white, center, 2rem, italic)
+    }
+
+    .promo {
+        color: white;
+        @include m.promo(2.5rem, center, false, false);
+    }
+
+
+    @include m.lap {
+
+        h2 {
+            font-size: 5rem;
+        }
+
+        .contain {
+            @include m.box(90rem);
+        }
+    }
+
+
+
+
+}

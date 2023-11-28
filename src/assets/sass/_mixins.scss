@@ -1,0 +1,157 @@
+@use 'variables'as v;
+
+/*---------Mixins---------- */
+@mixin gap($size: 2rem) {
+    gap: 2rem;
+}
+
+@mixin shadow() {
+    box-shadow: 1px 2px 8px 2px rgb(28 27 27 / 82%);
+    -webkit-box-shadow: 1px 2px 8px 2px rgb(28 27 27 / 82%);
+    -moz-box-shadow: 1px 2px 8px 2px rgb(28 27 27 / 82%);
+}
+
+@mixin menu($border: true) {
+    padding-right: 1rem;
+
+    &:last-of-type {
+        border: 0;
+    }
+
+    @if $border {
+        border-right: .1rem solid white;
+    }
+}
+
+@mixin box($size, $margin: false) {
+    width: 100%;
+    margin: 0 auto;
+    max-width: $size;
+
+    @if $margin {
+        margin: 0;
+    }
+}
+
+@mixin padding($s1: 2rem, $s2: 2rem, $all: true) {
+    padding: $s1 $s2;
+
+    @if $all {
+        padding: $s1;
+    }
+}
+
+@mixin title($color, $align: center, $mb: 2rem, $style: normal) {
+    color: $color;
+    font-family: 'Taviraj';
+    font-weight: bold;
+    margin-bottom: $mb;
+    text-align: $align;
+    font-style: $style;
+}
+
+@mixin promo($size, $align: left, $bold: true, $italic: true) {
+    margin: 0;
+    font-size: $size;
+    text-align: $align;
+
+    @if $bold {
+        font-weight: bold;
+    }
+
+    @if $italic {
+        font-style: italic;
+    }
+
+}
+
+@mixin btn($color: white, $bg: v.$melon, $margin: true) {
+    color: $color;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    min-width: 15rem;
+    text-align: center;
+    display: inline-block;
+    background-color: $bg;
+    transition: all .8s ease-in-out;
+
+    &:hover {
+        background-color: v.$creamDark;
+    }
+
+    @if $margin {
+        margin-top: 2.5rem;
+    }
+}
+
+@mixin icons($color: white, $size: 2rem) {
+    color: $color;
+    font-size: $size;
+}
+
+@mixin bg-color($color) {
+    background-color: $color;
+}
+
+@mixin btn-carrusel($color: #FB846B) {
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 5rem;
+    border: 1px solid $color;
+    transition: all .5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.353);
+    box-shadow: 0rem .1rem .6rem #b7b7b7;
+
+    &:hover,
+    &.activo {
+        background-color: #f8ece3dd;
+    }   
+}
+
+@mixin btn-position($size: 4.8rem){    
+    top: 50%;
+    width: $size;
+    height: $size;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+@mixin pointsBottom($bottom: 1.2rem){
+    left: 50%;
+    gap: 1.5rem;    
+    display: flex;     
+    bottom: $bottom;
+    position: absolute;
+    justify-content: center;    
+    transform: translateX(-50%);     
+}
+
+@mixin flex($type: center, $dir: false, $gap: 2rem) {
+    gap: $gap;
+    display: flex;
+    flex-direction: row;
+    justify-content: $type;
+
+    @if $dir {
+        flex-direction: column;
+    }
+}
+
+@mixin column3($r1: 1fr, $r2: 2fr, $r3: 1fr) {
+    grid-template-columns: $r1 $r2 $r3;
+}
+
+@mixin column2($r1: 1fr, $r2: 1fr) {
+    grid-template-columns: $r1 $r2;
+}
+
+@mixin columns($number) {
+    grid-template-columns: repeat($number, 1fr);
+}
+
+/*---------Media Query---------- */
+@mixin lap {
+    @media(min-width: 912px) {
+        @content;
+    }
+}

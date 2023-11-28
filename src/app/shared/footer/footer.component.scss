@@ -1,0 +1,37 @@
+@use '../../../assets/sass/variables'as v;
+@use '../../../assets/sass/mixins'as m;
+
+a {
+    display: block;
+}
+
+i {
+    @include m.icons(white, 2rem);
+}
+
+iframe {
+    width: 100%;
+}
+
+
+h3 {
+    font-size: 3rem;
+    @include m.title(white, left, 2.5rem, italic);
+}
+
+
+.logo {
+    font-size: 5rem;
+    display: block;
+    @include m.box(50%);
+}
+
+.logo,
+.box a,
+.flex {
+    @include m.padding(1rem 0);
+}
+
+.bg-color {
+    @include m.bg-color(v.$melon);
+}

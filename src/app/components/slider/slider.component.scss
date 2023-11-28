@@ -1,0 +1,103 @@
+@use '../../../assets/sass/variables'as v;
+@use '../../../assets/sass/mixins'as m;
+
+.carrusel {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.sliders {
+    height: 100%;
+    flex-flow: row nowrap;
+    transition: all .5s ease;
+    @include m.flex(center, false, 0);
+}
+
+.punto,
+.carrusel-arrow {
+    @include m.btn-carrusel();
+}
+
+.carrusel-arrow {
+    @include m.btn-position();
+}
+
+.carrusel-prev {
+    left: 1rem;
+}
+
+.carrusel-next {
+    right: 1rem;
+}
+
+.puntos {
+    @include m.pointsBottom();
+}
+
+.punto {
+    width: 1.7em;
+    height: 1.7em;
+    list-style: none;
+}
+
+
+section {
+    height: 100%;
+    //  width: calc(100% / 3);
+    @include m.flex(center, true, 0);
+
+    h2,
+    p {
+        color: white;
+    }
+
+    &[class$="-1"] {
+        background: url('../../../assets/img/slider1.jpg') no-repeat top center;
+        background-size: cover;
+
+        h2 {
+            text-align: left;
+        }
+    }
+
+    &[class$="-2"] {
+        background: url('../../../assets/img/slider2.jpg') no-repeat top center;
+        background-size: cover;
+
+        h2 {
+            text-align: left;
+        }
+
+        .box {
+            @include m.box(45rem, true);
+        }
+    }
+
+    &[class$="-3"] {
+        background: url('../../../assets/img/slider3.jpg') no-repeat top center;
+        background-size: cover;
+
+        h2 {
+            @include m.title(white, right, 2rem, italic);
+        }
+
+        .promo {
+            color: white;
+            @include m.promo(2rem, right, false, false);
+        }
+
+        .contain {
+            @include m.flex(flex-end, false);
+        }
+
+        .box {
+            @include m.box(30rem, true);
+
+            @include m.lap() {
+                @include m.box(55rem, true);
+            }
+        }
+    }
+}

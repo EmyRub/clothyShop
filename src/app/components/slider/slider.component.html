@@ -1,0 +1,54 @@
+<div class="carrusel">
+
+    <div class="sliders" [style.width.%]="fullContent" [style.transform]="'translate(' + operacion + '%)'"
+        #sliderContent>
+
+        <section class="bg-1" [style.width.%]="sliderWidth" #slider>
+            <div class="contain">
+                <div class="box">
+                    <h2>Otoño / <br> Invierno</h2>
+                    <p>¡Aprovecha todas las promociones de fin de mes!</p>
+                    <a href="" class="btn">¡Ver más!</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-2" [style.width.%]="sliderWidth" #slider>
+            <div class="contain">
+                <div class="box">
+                    <h2>Saca tu lado más darks</h2>
+                    <p>¡Conóce nuestro catálogo!</p>
+                    <a href="" class="btn">¡Ir a tienda!</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-3" [style.width.%]="sliderWidth" #slider>
+
+            <div class="contain">
+
+                <div class="box">
+                    <h2>"Que resplandezca el espiritu"</h2>
+                    <p class="promo">¡La mejor variedad en moda juvenil!</p>
+                    <div class="flex right">
+                        <a href="" class="btn">¡Ver más!</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <button class="carrusel-arrow carrusel-prev" (click)="moveLeft()" #prev>
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="carrusel-arrow carrusel-next" (click)="moveRight()" #next>
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <ul class="puntos">
+        <li *ngFor="let slider of sliders; let i = index" [attr.data-id]="i" class="punto" (click)="selectPoints(punto)" #punto></li>
+    </ul>
+</div>
