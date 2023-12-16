@@ -8,7 +8,7 @@ import { Product, Category } from 'src/app/interfaces/shop.interface';
 })
 export class CarruselComponent implements AfterViewInit {
 
-  @Input() type: string = '';
+  @Input() type: string = 'product';
   @Input() products!: Product[];
   @Input() categories!: Category[];
 

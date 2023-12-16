@@ -2,45 +2,34 @@
 
     <div class="carrusel-track" [style.left.px]="leftPosition" #carruselList>
 
-        <div *ngFor="let product of products" class="product" #product>           
-            <picture>
-                <img src="{{product.category.image}}" alt="{{product.category}}">
-            </picture>
-            <h3>{{product.title}}</h3>       
-            <p>Precio: <b>${{product.price}}</b></p>
-            <a href="" class="btn">Añadir a carrito</a>
-            <a href="" class="btn shop">Comprar</a>
-        </div>
+        <ng-container [ngSwitch]="type">
 
-    </div>
+            <ng-container *ngSwitchCase="'product'">
 
-    <button class="carrusel-arrow carrusel-prev" (click)="moveLeft()" #prev>
-        <i class="fa-solid fa-chevron-left"></i>
-    </button>
+                <div *ngFor="let product of products" class="product" #product>
+                    <picture>
+                        <img src="{{product.images}}" alt="{{product.images}}">
+                    </picture>
+                    <h3>{{product.title}}</h3>
+                    <div>
+                        <p>Precio: <b>${{product.price}}</b></p>
+                        <a href="" class="btn">Añadir a carrito</a>
+                        <a href="" class="btn shop">Comprar</a>
+                    </div>
+                </div>
+            </ng-container>
 
-    <button class="carrusel-arrow carrusel-next" (click)="moveRight()" #next>
-        <i class="fa-solid fa-chevron-right"></i>
-    </button>
+            <ng-container *ngSwitchCase="'category'">
+                <div *ngFor="let category of categories" class="product" #product>
+                    <picture>
+                        <img src="{{category.image}}" alt="{{category.image}}">
+                    </picture>
+                    <h3>{{category.name}}</h3>
+                    <a href="" class="btn shop">Ver Más</a>
+                </div>
+            </ng-container>
 
-    <ul class="puntos">
-        <li class="punto" (click)="selectPoints()" #punto></li>
-        <li class="punto" (click)="selectPoints()" #punto></li>
-        <li class="punto" (click)="selectPoints()" #punto></li>
-    </ul>
-
-</div>
-
-<div class="carrusel" #carruselContent>
-
-    <div class="carrusel-track" [style.left.px]="leftPosition" #carruselList>
-
-        <div *ngFor="let category of categories" class="product" #product>           
-            <picture>
-                <img src="{{category.image}}" alt="{{category.image}}">
-            </picture>
-            <h3>{{category.name}}</h3>         
-            <a href="" class="btn shop">Ver Más</a>
-        </div>
+        </ng-container>
 
     </div>
 

@@ -68,7 +68,7 @@ i {
     }
 
     p {
-        margin: .5rem 0;
+        margin: .6rem 0;
         text-align: center;
     }
 
@@ -81,14 +81,21 @@ i {
         font-size: 1.2em;
     }
 
+    img,
+    picture {
+        margin: 0 auto;
+        max-height: 20rem;
+    }
+
     .btn {
         margin: 0;
     }
 
     .shop {
+        margin-top: .7rem;
         @include m.btn(white, v.$cafe, false);
 
-        &:hover{
+        &:hover {
             background-color: v.$orange;
         }
     }
