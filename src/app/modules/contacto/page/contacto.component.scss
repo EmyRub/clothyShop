@@ -1,0 +1,68 @@
+@use '../../../../assets/sass/variables'as v;
+@use '../../../../assets/sass/mixins'as m;
+
+form {
+    @include m.box(80%, false);
+}
+
+legend,
+input[type="submit"] {
+    text-transform: uppercase;
+}
+
+fieldset {
+    margin-bottom: 1.5rem;
+}
+
+input[type="tel"],
+input[type="text"],
+input[type="email"],
+select {
+    width: 30%;
+    @include m.padding(.5rem);
+}
+
+input[type="submit"] {
+    border: 0;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+}
+
+label {
+    @include m.padding(1rem, 2rem);
+}
+
+.group,
+fieldset,
+textarea {
+    @include m.padding();
+}
+
+
+/*---------Clases Propias---------- */
+
+.small {
+    width: 12rem;
+    display: inline-block;
+}
+
+.address input {
+    width: 70%;
+}
+
+label,
+input {
+    display: inline-block;
+}
+
+.error {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include m.padding(1.5rem);
+    @include m.bg-color(v.$melon);
+    border: .1rem solid v.$orange;
+}

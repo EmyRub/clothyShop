@@ -11,7 +11,7 @@
             </picture>
 
             <div class="box">
-                <h2>"La calaca fina"</h2>
+                <h2>"ClothyShop"</h2>
                 <p>Quisque porta dignissim dolor id bibendum. Donec ultricies blandit eros, quis efficitur nulla
                     vehicula vitae. Morbi sapien lectus, cursus vel interdum in, finibus eu lorem. Ut rutrum nibh
                     tincidunt pretium accumsan. Pellentesque laoreet est velit. Proin pharetra massa vel massa finibus
@@ -35,7 +35,7 @@
 <section class="padding">
     <div class="contain">
         <h2>Productos Destacados</h2>
-        <app-carrusel></app-carrusel>
+        <app-carrusel [products]="products" [type]="cat1"></app-carrusel>
         <p>una galeria en nosotros, metodos de pago, instagram, blog</p>
     </div>
 </section>
@@ -51,7 +51,7 @@
 <section class="padding">
     <div class="contain">
         <h2>Nuestro Catálogo</h2>
-        <app-carrusel></app-carrusel>
+        <app-carrusel [categories]="category" [type]="cat2"></app-carrusel>
     </div>
 </section>
 

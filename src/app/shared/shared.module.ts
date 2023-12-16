@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports: [
     MenuComponent,

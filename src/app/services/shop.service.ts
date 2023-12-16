@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Product } from '../interfaces/shop.interface';
+import { Category, Product } from '../interfaces/shop.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +24,19 @@ export class ShopService {
   }
 
   getProducts(limit: number) {
-
     const params = new HttpParams()
       .set('offset', 0)
       .set('limit', limit)
 
-    return this.http.get<Product>(`${this.url_Api}/products`, { params })
+    return this.http.get<Product[]>(`${this.url_Api}/products`, { params })
 
   }
+
+  getCategories(limit: number) {
+    const params = new HttpParams()
+      .set('limit', limit)
+
+    return this.http.get<Category[]>(`${this.url_Api}/categories`, { params })
+  }
+
 }

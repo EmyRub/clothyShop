@@ -1,3 +1,158 @@
 <main class="padding">
-    <h1>Contacto</h1>
+    <div class="contain">
+        <h1>Contacto</h1>
+
+        <form (ngSubmit)="guardar()" autocomplete="on" [formGroup]="formulario">
+
+            <div *ngIf="isValidField('nombre') || isValidField('apellidos')" class="error flex center">*Estos campos son obligatorios</div>
+            <div *ngIf="!isErrorTrue('nombre') || !isErrorTrue('apellidos')" class="error flex center">  {{getFieldError('nombre')}}    </div>
+
+            <fieldset>
+                <legend>Nombre Completo</legend>
+                <label class="small" for="nombre">Nombre(s)*:</label>
+                <input formControlName="nombre" id="nombre" type="text">
+
+                <label class="small" for="apellido">Apellido(s)*:</label>
+                <input formControlName="apellidos" id="apellido" type="text">
+            </fieldset>
+
+            <div *ngIf="isValidField('email')" class="error flex center">*El correo es obligatorio</div>
+            <div *ngIf="isValidField('telefono')" class="error flex center">*{{getFieldError('telefono')}} </div>
+
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label class="small" for="phone">Teléfono:</label>
+                <input id="phone" formControlName="telefono" type="tel">
+
+                <label class="small" for="email">Email*:</label>
+                <input id="email" formControlName="email" type="email">
+            </fieldset>
+
+            <fieldset>
+                <legend>Especificaciones</legend>
+
+                <div class="flex">
+                    <!--duda con radios, name, value formcontrolName-->
+                    <div formGroupName="genero">
+                        <label>Género de Modelo:</label>
+
+                        <div class="group">
+                            <label for="femenino">Femenino:</label>
+                            <input id="femenino" formControlName="femenino" type="checkbox" value="femenino">
+
+                            <label for="masculino">Masculino:</label>
+                            <input id="masculino" formControlName="masculino" type="checkbox" value="masculino">
+                        </div>
+                    </div>
+
+                    <div formGroupName="talla">
+                        <label>Talla de modelo:</label>
+
+                        <div class="group">
+                            <label for="chica">Chica</label>
+                            <input id="chica" formControlName="chica" type="radio" value="chica">
+
+                            <label for="mediana">Mediana</label>
+                            <input id="mediana" formControlName="mediana" type="radio" value="mediana">
+
+                            <label for="grande">Grande</label>
+                            <input id="grande" formControlName="grande" type="radio" value="grande">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <label for="color">Color de modelo:</label>
+                    <input id="color" formControlName="color" type="color" value="color">
+                </div>
+
+                <div class="group">
+
+                    <label for="fecha">Fecha de entrega:</label>
+                    <input id="fecha" type="date" formControlName="fecha" value="fecha" min="2023-12-04"
+                        max="2026-12-01">
+
+                    <label for="referencia">Referencia de modelo:</label>
+                    <input id="referencia" type="file" formControlName="referencia">
+                </div>
+
+            </fieldset>
+
+            
+            <div class="error flex center">*Estos campos son obligatorios</div>
+            <fieldset formGroupName="direccion" class="address">
+                <legend>Dirección</legend>
+
+                <div class="group">
+
+                    <label for="estado">Estado:</label>
+                    <select id="estado" formControlName="estado" size="1">
+                        <option value="cdmx" selected>Cdmx</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Puebla">Puebla</option>
+                    </select>
+
+                    <label for="municipio">Municipio:</label>
+                    <select id="municipio" formControlName="municipio" size="1">
+                        <option value="cdmx" selected>Cdmx</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Puebla">Puebla</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label class="small" for="colonia">Colonia:</label>
+                    <input id="colonia" formControlName="colonia" type="text">
+                </div>
+
+                <div class="group">
+                    <label class="small" for="calle">Calle:</label>
+                    <input id="calle" formControlName="calle" type="text">
+                </div>
+
+                <div class="group">
+                    <label class="small" for="cp">C.P.</label>
+                    <input id="cp" formControlName="cp" type="text">
+                </div>
+            </fieldset>
+
+            <textarea id="mensaje" forControlName="mensaje" cols="30" rows="10"
+                placeholder="Escribe tu mensaje:"></textarea>
+
+            <div class="flex center">
+                <input type="submit" value="enviar" class="btn" [disabled]="formulario.invalid">
+            </div>
+        </form>
+
+        <div class="grid column2 padding">
+
+            <div class="col">
+                <!--Formulario no válido-->
+                <span>Valid</span>
+                <pre>{{formulario.valid}}</pre>
+
+                <!--Significa que no se han cambiado ninguno de los valores con los que se presentó el formulario al usuario-->
+                <span>Pristine</span>
+                <pre>{{formulario.pristine | json}}</pre>
+
+                <!--Significa si el usuario ha tocado el formulario-->
+                <span>Touched</span>
+                <pre>{{formulario.touched}}</pre>
+
+                
+                <span>Field</span>
+                <pre>{{formulario.controls['nombre'].errors| json}}</pre>
+                <pre>{{formulario.controls['telefono'].errors| json}}</pre>
+
+            </div>
+
+            <div class="col">
+                <!--Los valores de los inputs-->
+                <span>Value</span>
+                <pre>{{formulario.value | json}}</pre>
+
+
+            </div>
+        </div>
+    </div>
 </main>

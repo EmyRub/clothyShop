@@ -7,7 +7,6 @@ import { Component, ElementRef, ViewChildren, OnInit, AfterViewInit, QueryList, 
 })
 export class SliderComponent implements OnInit, AfterViewInit {
 
-
   sliderLength: number = 1;
   sliderWidth: number = 0;
   fullContent: number = 0;

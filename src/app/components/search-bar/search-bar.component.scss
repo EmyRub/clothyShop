@@ -1,0 +1,33 @@
+
+@use '../../../assets/sass/variables'as v;
+@use '../../../assets/sass/mixins'as m;
+
+i {
+    @include m.icons(v.$melon, 2.5rem);
+}
+
+.buscador {
+    overflow: hidden;
+    border-radius: 2.4rem;
+    border: .1rem solid v.$melon;
+
+    button,
+    input {
+        border: 0;
+    }
+
+    input {
+        width: 100%;
+        outline: none;
+        @include m.padding(1rem);
+    }
+
+    button {
+        @include m.padding(.5rem, 2rem, false);
+        border-radius: 2.4rem 0 0 2.4rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
