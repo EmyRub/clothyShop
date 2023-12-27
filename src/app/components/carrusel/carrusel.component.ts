@@ -16,44 +16,69 @@ export class CarruselComponent implements AfterViewInit {
   @ViewChildren('product') producto!: QueryList<ElementRef>
   @ViewChild('carruselList') list!: ElementRef<HTMLDivElement>;
 
-  @ViewChild('carruselContent') fullContent!: ElementRef<HTMLDivElement>;
 
   productWidth: number = 0;
-  listWidth: number = 0;
-  carruselWidth: number = 0;
   leftPosition: number = 0;
+  widthSection: number = 0;
+
 
   ngAfterViewInit(): void {
-    this.setUp();
+
+    /** la obtención de la longitud inmediatamente después de 
+     * ngAfterViewInit no garantiza que los elementos estén disponibles 
+     * debido a la naturaleza asíncrona de la renderización de la vista. */
+    /**suscribirse a los cambios en la lista de QueryList utilizando 
+     * changes para esperar a que los elementos estén listos.  */
+    this.producto.changes.subscribe(() => {
+      this.setUp();
+    });
+
   }
 
   private setUp() {
-    // Convertir la QueryList a un array y acceder al primer elemento
-    const selectProduct = this.producto.toArray();
 
-    if (selectProduct) {
-      this.productWidth = selectProduct[0].nativeElement.offsetWidth;
-      this.listWidth = this.list.nativeElement.offsetWidth;
-      this.carruselWidth = this.fullContent.nativeElement.offsetWidth;
+    if (this.producto && this.producto.length > 0) {
+
+      this.productWidth = this.producto.first.nativeElement.offsetWidth;
+      this.leftPosition = parseInt(this.list.nativeElement.style.left);
+
+      this.calLastSection();
     }
+
   }
 
   moveLeft() {
-    console.log(this.leftPosition)
-    if (this.leftPosition > 0) {
-      this.leftPosition = 1 * (this.leftPosition + this.productWidth);
+    if (this.leftPosition <= 0 && this.leftPosition != this.widthSection) {
+      this.leftPosition = this.widthSection;
+      return;
     }
+    this.leftPosition += this.productWidth;
   }
 
   moveRight() {
-    if (this.leftPosition < (this.listWidth - this.carruselWidth)) {
-      this.leftPosition = -1 * (this.leftPosition + this.productWidth);
+    if (this.widthSection > this.leftPosition) {
+      this.leftPosition = 0;
+      return;
     }
-
+    this.leftPosition -= this.productWidth;
   }
 
   selectPoints() {
-   }
+  }
 
+  calLastSection() {
+    // Se inicializan valores
+    const element = this.producto.first.nativeElement;
+    const style = window.getComputedStyle(element);
+    const flexBasis = style.getPropertyValue('flex-basis');
+
+    // Se hacen cálculos
+    const lastSection = 100 / parseInt(flexBasis);
+    const sectionContent = lastSection * this.productWidth;
+    const fullContent = (this.producto.length - 1) * this.productWidth;
+
+    this.widthSection = (sectionContent - fullContent);
+
+  }
 
 }
