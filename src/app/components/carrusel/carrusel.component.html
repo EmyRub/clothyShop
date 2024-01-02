@@ -7,25 +7,29 @@
             <ng-container *ngSwitchCase="'product'">
 
                 <div *ngFor="let product of products" class="product" #product>
-                    <picture>
-                        <img src="{{product.images}}" alt="{{product.images}}">
-                    </picture>
-                    <h3>{{product.title}}</h3>
-                    <div>
-                        <p>Precio: <b>${{product.price}}</b></p>
-                        <a href="" class="btn">Añadir a carrito</a>
-                        <a href="" class="btn shop">Comprar</a>
+                    <div class="box">
+                        <picture>
+                            <img src="{{product.images}}" alt="{{product.images}}">
+                        </picture>
+                        <h3>{{product.title}}</h3>
+                        <div>
+                            <p>Precio: <b>${{product.price}}</b></p>
+                            <a href="" class="btn">Añadir a carrito</a>
+                            <a href="" class="btn shop">Comprar</a>
+                        </div>
                     </div>
                 </div>
             </ng-container>
 
             <ng-container *ngSwitchCase="'category'">
                 <div *ngFor="let category of categories" class="product" #product>
-                    <picture>
-                        <img src="{{category.image}}" alt="{{category.image}}">
-                    </picture>
-                    <h3>{{category.name}}</h3>
-                    <a href="" class="btn shop">Ver Más</a>
+                    <div class="box">
+                        <picture>
+                            <img src="{{category.image}}" alt="{{category.image}}">
+                        </picture>
+                        <h3>{{category.name}}</h3>
+                        <a href="" class="btn shop">Ver Más</a>
+                    </div>
                 </div>
             </ng-container>
 
@@ -42,9 +46,19 @@
     </button>
 
     <ul class="puntos">
-        <li class="punto" (click)="selectPoints()" #punto></li>
-        <li class="punto" (click)="selectPoints()" #punto></li>
-        <li class="punto" (click)="selectPoints()" #punto></li>
+
+        <ng-container [ngSwitch]="type">
+
+            <ng-container *ngSwitchCase="'product'">
+                <li *ngFor="let point of cycle; index as count" class="punto" (click)="selectPoints(count )" #punto></li>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'category'">
+                <li *ngFor="let point of cycle; index as count" class="punto" (click)="selectPoints(count)" #punto></li>
+            </ng-container>
+
+        </ng-container>
+
     </ul>
 
 </div>

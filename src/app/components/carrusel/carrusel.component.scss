@@ -2,12 +2,10 @@
 @use '../../../assets/sass/mixins'as m;
 
 .carrusel {
+    height: 47rem;
     overflow: hidden;
     position: relative;
-   // @include m.box(120rem);
-   // @include m.padding(4rem, 0rem);
 
-    //width: 90%;
 }
 
 .carrusel-track {
@@ -39,7 +37,11 @@
 }
 
 .puntos {
-    @include m.pointsBottom(-1.4rem);
+    display: none; 
+
+    @include m.tablet {    
+        @include m.pointsBottom(-1.4rem);
+    }
 }
 
 .punto {
@@ -56,12 +58,25 @@ i {
 /************************************************/
 
 .product {
-    flex:0 0 25%;
-    padding: 2rem;
+    flex: 0 0 100%;
+
+    min-height: 45rem;
     border: 1px solid #e1e1e1;
-   // margin: 0 .5rem;
+    // margin: 0 .5rem;
     @include m.bg-color(v.$gray);
-    @include m.flex(space-between, true, .5rem);
+
+
+    @include m.phone {
+        flex: 0 0 50%;
+    }
+
+    @include m.tablet {
+        flex: 0 0 33.3%;
+    }
+
+    @include m.lap {
+        flex: 0 0 25%;
+    }
 
     h3 {
         font-size: 2rem;
@@ -84,7 +99,8 @@ i {
 
     img,
     picture {
-        margin: 0 auto;
+        margin: 0 auto 1rem;
+        display: block;
         max-height: 20rem;
     }
 
@@ -100,4 +116,11 @@ i {
             background-color: v.$orange;
         }
     }
+}
+
+.box {
+    height: 100%;
+    padding: 2rem;
+    @include m.box(30rem);
+    @include m.flex(space-between, true, .5rem);
 }

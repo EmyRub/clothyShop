@@ -95,7 +95,7 @@ section {
         .box {
             @include m.box(30rem, true);
 
-            @include m.lap() {
+            @include m.tablet() {
                 @include m.box(55rem, true);
             }
         }

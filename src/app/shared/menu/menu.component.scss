@@ -27,13 +27,13 @@ a {
     }
 
     .area3 {
-        @include m.lap {
+        @include m.tablet {
             @include m.flex(flex-end);
         }
     }
 
     .grid {
-        @include m.lap {
+        @include m.tablet {
             @include m.column3(1fr, 2fr, 1fr);
         }
     }
@@ -46,7 +46,7 @@ a {
         @include m.icons(v.$melon, 2.5rem);
     }
 
-    .lap {
+    .tablet {
         display: none;
 
         .logo {
@@ -59,12 +59,12 @@ a {
         }
 
         .area3 {
-            @include m.lap {
+            @include m.tablet {
                 @include m.flex(flex-end);
             }
         }
 
-        @include m.lap {
+        @include m.tablet {
             @include m.column3(1.5fr, 2fr, 1.5fr);
         }
     }
@@ -86,13 +86,13 @@ a {
         }
     }
 
-    @include m.lap {
+    @include m.tablet {
 
         .phone {
             display: none;
         }
 
-        .lap {
+        .tablet {
             display: grid;
         }
     }
@@ -110,7 +110,7 @@ a {
         @include m.flex(flex-start);
     }
 
-    @include m.lap {
+    @include m.tablet {
         display: block;
     }
 }
@@ -118,7 +118,7 @@ a {
 #menu {
     @include m.flex(center, true, 1rem);
 
-    @include m.lap {
+    @include m.tablet {
 
         @include m.flex();
 

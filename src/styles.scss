@@ -36,7 +36,7 @@ h1,
 h2 {
     font-size: 4rem;
 
-    @include m.lap() {
+    @include m.tablet() {
         font-size: 6rem;    }
 }
 
@@ -59,7 +59,7 @@ img {
 .contain {
     @include m.box(90%);
 
-    @include m.lap() {
+    @include m.tablet() {
         @include m.box(120rem);
     }
 }
@@ -109,7 +109,7 @@ img {
         grid-template-areas: 'area1''area2''area3';
     }
 
-    @include m.lap {
+    @include m.tablet {
 
         &.areas {
             grid-template-areas: 'area1 area2 area3';

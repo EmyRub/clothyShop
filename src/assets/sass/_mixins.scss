@@ -105,10 +105,10 @@
     &:hover,
     &.activo {
         background-color: #f8ece3dd;
-    }   
+    }
 }
 
-@mixin btn-position($size: 4.8rem){    
+@mixin btn-position($size: 4.8rem) {
     top: 50%;
     width: $size;
     height: $size;
@@ -116,14 +116,14 @@
     transform: translateY(-50%);
 }
 
-@mixin pointsBottom($bottom: 1.2rem){
+@mixin pointsBottom($bottom: 1.2rem) {
     left: 50%;
-    gap: 1.5rem;    
-    display: flex;     
+    gap: 1.5rem;
+    display: flex;
     bottom: $bottom;
     position: absolute;
-    justify-content: center;    
-    transform: translateX(-50%);     
+    justify-content: center;
+    transform: translateX(-50%);
 }
 
 @mixin flex($type: center, $dir: false, $gap: 2rem) {
@@ -151,7 +151,19 @@
 
 /*---------Media Query---------- */
 @mixin lap {
+    @media(min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin tablet {
     @media(min-width: 912px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media(min-width:768px) {
         @content;
     }
 }
