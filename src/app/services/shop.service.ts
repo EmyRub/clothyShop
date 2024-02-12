@@ -8,6 +8,7 @@ import { Category, Product } from '../interfaces/shop.interface';
 export class ShopService {
 
   // Guarda la busqueda del cliente
+  private _listCar: Product[] = [];
   private _shopHistory: string[] = [];
   private url_Api: string = 'https://api.escuelajs.co/api/v1';
 
@@ -15,12 +16,27 @@ export class ShopService {
 
   // Evita que fuera del servicio hagan una modificación en el arreglo
   get shopHistory() {
+    // Hace una copia con la anterior busqueda
     return [...this._shopHistory];
   }
 
-  searchQuery(query: string): void {
+  get listCar(): Product[] {
+    return [...this.listCar];
+  }
+
+  searchQuery(query: string) {
+    if (query.length === 0) return;
     query = query.trim().toLowerCase();
-    this._shopHistory.unshift(query);
+
+    return this.http.get<Product[]>(`${this.url_Api}/products/?title=${query}`);
+
+  }
+
+  carList(query: Product) {
+    //Que no haga nada si está vacío
+    if (query) return;
+
+    this._listCar.unshift(query)
   }
 
   getProducts(limit: number) {

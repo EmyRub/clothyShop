@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { SliderComponent } from './slider/slider.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 @NgModule({
   declarations: [
     SliderComponent,
     CarruselComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TestimoniosComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
   exports: [
     CarruselComponent,
     SliderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TestimoniosComponent
   ]
 })
 export class ComponentsModule { }

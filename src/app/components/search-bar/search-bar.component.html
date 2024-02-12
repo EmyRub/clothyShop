@@ -1,4 +1,14 @@
 <div class="buscador flex">
     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    <input (keyup.enter)="searchQuery()" type="text" #search>
+    <input (keyup)="searchQuery(search.value)" type="text" #search>
 </div>
+
+<nav *ngIf="listSearch" class="box">
+    <a *ngFor="let product of listSearch" class="list">
+        <img src="{{product.images}}" alt="{{product.images}}">
+        <div>
+            <h4>{{product.title}}</h4>
+            <p>${{product.price}}</p>
+        </div>      
+    </a>
+</nav>

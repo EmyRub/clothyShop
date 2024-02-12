@@ -1,0 +1,103 @@
+@use '../../../assets/sass/variables'as v;
+@use '../../../assets/sass/mixins'as m;
+
+.container {
+    position: relative;
+    @include m.box(120rem);
+}
+
+.carousel {
+    padding: 0;
+    gap: 1.6rem;
+    display: grid;
+    overflow-x: auto;
+
+    //Eliminia el scroll
+    scrollbar-width: none;
+    //le diremos si queremos controlar el scroll en una dirección, otra, ninguna o ambas.
+    //Al terminar de hacer scroll, el scroll se mueve automáticamente SIEMPRE al punto de ajuste que se haya determinado. Cuando se cambia el tamaño de la ventana, se cambia de orientación o se modifica el tamaño, SIEMPRE se moverá para satisfacer esto.
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    //Evita que los elementos formen una segunda hilera
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &.no-transition {
+        scroll-behavior: auto;
+    }
+
+    &.dragging {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+
+        .card {
+            cursor: grab;
+            /*specifies whether the text of an element can be selected*/
+            user-select: none;
+        }
+    }
+}
+
+.card {
+    @include m.flex(center, true, 2rem);
+    list-style: none;
+    border-radius: 8px;
+    align-items: center;
+    // snap-align.-Indica cómo se tendrá que alinear el elemento en el viewport.
+    //start: La caja tiene como punto de ajuste su inicio.
+    scroll-snap-align: start;
+    background-color: v.$gray;
+}
+
+picture {
+    margin: 2rem;
+    display: block;
+    width: 14.8rem;
+    height: 14.8rem;
+    border-radius: 50%;
+    background-color: v.$melon;
+}
+
+img {
+    width: 14rem;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgb(219, 216, 216);
+}
+
+h4 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+span {
+    font-size: 1.6rem;
+}
+
+blockquote {
+    font-size: 1.5rem;
+}
+
+
+.carrusel-arrow {
+    @include m.btn-carrusel();
+    @include m.btn-position(4.5rem);
+}
+
+.carrusel-prev {
+    left: .5rem;
+}
+
+.carrusel-next {
+    right: .5rem;
+}
+
+i {
+    @include m.icons(v.$melon)
+}
