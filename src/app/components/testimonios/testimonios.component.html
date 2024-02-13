@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" (mouseenter)="restartAutoplay()" (mouseleave)="autoPlay()" #container>
 
     <ul 
     class="carousel" 
-
     (mousemove)="dragging($event)" 
     (mousedown)="dragStart($event)" 
     (mouseup)="dragStop()"
+    (scroll)="infiniteScroll()"
     #carrusel>
 
         <li class="card" #card>

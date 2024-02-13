@@ -4,6 +4,7 @@
 .container {
     position: relative;
     @include m.box(120rem);
+    cursor: pointer;
 }
 
 .carousel {
