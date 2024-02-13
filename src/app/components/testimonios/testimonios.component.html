@@ -1,8 +1,14 @@
 <div class="container">
 
-    <ul class="carousel">
+    <ul 
+    class="carousel" 
 
-        <li class="card">
+    (mousemove)="dragging($event)" 
+    (mousedown)="dragStart($event)" 
+    (mouseup)="dragStop()"
+    #carrusel>
+
+        <li class="card" #card>
 
             <picture>
                 <img draggable="false" src="assets/img/slider1.jpg" alt="Imagen carrusel">
@@ -15,7 +21,7 @@
 
         </li>
 
-        <li class="card">
+        <li class="card" #card>
 
             <picture>
                 <img draggable="false" src="assets/img/slider2.jpg" alt="Imagen carrusel">
@@ -28,7 +34,7 @@
 
         </li>
 
-        <li class="card">
+        <li class="card" #card>
 
             <picture>
                 <img draggable="false" src="assets/img/slider3.jpg" alt="Imagen carrusel">
@@ -41,7 +47,7 @@
 
         </li>
 
-        <li class="card">
+        <li class="card" #card>
 
             <picture>
                 <img draggable="false" src="assets/img/slider3.jpg" alt="Imagen carrusel">
@@ -54,7 +60,7 @@
 
         </li>
 
-        <li class="card">
+        <li class="card" #card>
 
             <picture>
                 <img draggable="false" src="assets/img/slider2.jpg" alt="Imagen carrusel">
@@ -68,11 +74,12 @@
         </li>
 
     </ul>
-    <button class="carrusel-arrow carrusel-prev" #prev>
+
+    <button id="prev" class="carrusel-arrow carrusel-prev" (click)="arrowBtn($event)" #button>
         <i class="fa-solid fa-chevron-left"></i>
     </button>
 
-    <button class="carrusel-arrow carrusel-next" #next>
+    <button id="next" class="carrusel-arrow carrusel-next" (click)="arrowBtn($event)" #button>
         <i class="fa-solid fa-chevron-right"></i>
     </button>
 
