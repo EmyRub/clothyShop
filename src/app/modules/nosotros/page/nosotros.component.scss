@@ -1,0 +1,85 @@
+@use '../../../../assets/sass/variables'as v;
+@use '../../../../assets/sass/mixins'as m;
+
+#hero {
+    background: url('../../../../assets/img/2.jpg') no-repeat center top;
+    background-size: cover;
+    height: 40rem;
+
+    h1 {
+        margin: 0;
+        text-shadow: 1px 1px 12px v.$melon;
+    }
+
+    h1,
+    p {
+        color: white;
+        text-align: left;
+    }
+
+    .flex {
+        height: 100%;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .box{
+        @include m.box(75%, true)
+
+    }
+}
+
+#prueba {
+
+    background: url('../../../../assets/img/banner3.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 40rem;
+}
+
+#acerca {
+
+    h2,
+    p {
+        text-align: left;
+        color: white;
+    }
+
+    picture {
+        padding: 5rem;
+        border: 2rem solid v.$melon;
+
+    }
+
+    img {
+        right: -15rem;
+        position: relative;
+    }
+
+    blockquote {
+        bottom: -3rem;
+        right: 1.4rem;
+        padding: 2.5rem;
+        text-align: center;
+        font-style: italic;
+        font-size: 2rem;
+        color: v.$melon;
+        border-radius: 0rem 1rem 0rem 1rem;
+        position: absolute;
+        //border-left: .5rem solid v.$melon;
+        background-color: white;
+        box-shadow: 3px 5px 5px -1px rgba(186, 182, 182, 0.82);
+        @include m.box(35rem)
+    }
+
+    .flex {
+        @include m.flex(center, true)
+    }
+
+    .text {
+        border-radius: 1rem;
+        padding: 3rem 3rem 5rem;
+        position: relative;
+        background-color: rgb(255 181 171 / 61%);
+        background-color: v.$melon;
+    }
+}
