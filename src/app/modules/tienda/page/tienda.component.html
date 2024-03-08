@@ -1,16 +1,61 @@
-<section id="hero">
+<section id="hero" class="padding">
     <div class="contain">
         <h1>Tienda</h1>
     </div>
 </section>
 
-<main class="grid contain">
+<main class="grid">
 
     <aside>
+        
+        <article>
+            <h4>Filtrar por categoría</h4>
+        </article>
+
+        <article>
+            <h4>Filtrar por Precio</h4>
+        </article>
+
+        <article>
+            <h4>Filtrar por Color</h4>
+        </article>
 
     </aside>
 
-    <section class="grid column3">
+    <section>
+
+        <div class="flex right">
+
+            <button><i class="fa-solid fa-table-cells-large"></i></button>
+            <button><i class="fa-solid fa-table-cells"></i></button>
+            
+            <select name="" id="">
+                <option value="">Ordenar de mayor a menor precio</option>
+                <option value="">Ordenar de menor a mayor precio</option>
+                <option value="">Ordenar más antiguo</option>
+                <option value="">Ordenar por popularidad</option>
+                <option value="">Ordenar más nuevo</option>
+                <option value="">Ordenar alfabeticamente</option>
+            </select>
+        </div>
+
+        <div class="cuadricula">
+
+            <div *ngFor="let product of productos" class="product">
+                <div class="box">
+                    <picture>
+                        <img [style.background] src="{{product.images}}" alt="{{product.images}}">
+                    </picture>
+                    <h3>{{product.title}}</h3>
+                    <div>
+                        <p>Precio: <b>${{product.price}}</b></p>
+                        <a href="" class="btn">Añadir a carrito</a>
+                        <a href="" class="btn shop">Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </section>
 </main>

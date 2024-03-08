@@ -1,0 +1,23 @@
+@use '../../../../assets/sass/variables'as v;
+@use '../../../../assets/sass/mixins'as m;
+
+main {
+
+    @include m.box(95%);
+    grid-template-columns: 15% 85%;
+}
+
+.cuadricula {
+    gap: 2rem;
+    padding: 6rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    img{
+        width: auto;
+        object-fit: cover;
+        max-height: 24rem;
+        margin: 0 auto;
+        display: block;
+    }
+}
